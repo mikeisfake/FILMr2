@@ -6,12 +6,11 @@ class Api::V1::MoviesController < ApplicationController
   end
 
   def create
-    Movie.create(movie_params)
-    @movies = Movie.all.reverse
-    render json: @movies
+    @movie = Movie.create(movie_params)
+    render json: @movie
   end
 
-  
+
   private
 
   def movie_params

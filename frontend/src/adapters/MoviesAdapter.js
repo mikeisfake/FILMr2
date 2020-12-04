@@ -7,4 +7,18 @@ class MoviesAdapter {
     return fetch(this.baseURL)
       .then(resp => resp.json())
   }
+
+  postMovie(formData) {
+    const config = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(formData)
+    }
+
+    return fetch(this.baseURL, config)
+      .then(resp => resp.json())
+  }
 }
