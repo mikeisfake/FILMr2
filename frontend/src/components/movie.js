@@ -20,13 +20,22 @@ class Movie {
     directed by: ${this.director}<br><br>
     ${this.summary}
     </p>
+    <ul id="review-container-${this.id}" data-mov-id="${this.id}">
+    </ul>
     </div>
     `
   }
 
-  loadReviews() {
-    this.revAdapter.fetchReviews()
-      .then(review => console.log(review))
+  renderReviews() {
+    const list = document.getElementById(`review-container-${this.id}`)
+    list.innerHTML = this.reviews.map(review => review.renderLi()).join('')
   }
+
+  loadReviews() {
+    this.revAdapter.fetchReviews(this.id)
+      .then(reviews => reviews.forEach(review => this.reviews.push(new Review(review))))
+      .then(()=> this.renderReviews())
+  }
+
 
 }

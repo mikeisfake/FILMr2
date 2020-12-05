@@ -37,10 +37,7 @@ class Movies {
       .then(movies => {
         movies.forEach(movie => this.movies.push(new Movie(movie)))
       })
-      .then(() => {
-        this.renderMovies()
-        this.renderReviews()
-      })
+      .then(() => this.renderMovies())
   }
 
   btnEventListeners() {
