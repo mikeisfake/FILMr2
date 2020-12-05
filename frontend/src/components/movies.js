@@ -24,6 +24,7 @@ class Movies {
     this.adapter.postMovie(formData).then(movie => {
       this.movies.unshift(new Movie(movie))
       this.renderMovies()
+      this.movies.forEach(movie => movie.renderReviews())
     })
 
     el.title.value = ""
@@ -40,17 +41,27 @@ class Movies {
       .then(() => this.renderMovies())
   }
 
-  btnEventListeners() {
-    const btns = document.querySelectorAll(".review-btn")
-    btns.forEach(btn => btn.addEventListener('click', () => console.log("you clicked it!!")))
-  }
-
   renderMovies() {
     const container = document.getElementById('movie-list')
     container.innerHTML = this.movies.map(movie => movie.renderMovie()).join('')
     this.btnEventListeners()
   }
 
+  btnEventListeners() {
+    const btns = document.querySelectorAll(".review-btn")
+    btns.forEach(btn => btn.addEventListener('click', () => this.showRevForm() ))
+  }
+
+  showRevForm() {
+    const reviewForm = document.getElementById("review-form-container")
+    reviewForm.innerHTML += `
+      <h2>New Review</h2>
+      <form id="new-review-form">
+      <input type="text" name="review" placeholder="your review here">
+      <input type="submit">
+      </form>
+    `
+  }
 }
 
 //
