@@ -1,15 +1,14 @@
-class MoviesAdapter {
+class ReviewsAdapter {
   constructor() {
     this.baseURL = "http://localhost:3000/api/v1/movies"
   }
 
-  fetchMovies() {
-    return fetch(this.baseURL)
+  fetchReviews(movieId) {
+    return fetch(`${this.baseURL}/${movieId}/reviews`)
       .then(resp => resp.json())
   }
 
-  
-  postMovie(formData) {
+  saveReview(formData, movieId) {
     const config = {
       method: "POST",
       headers: {
@@ -19,7 +18,9 @@ class MoviesAdapter {
       body: JSON.stringify(formData)
     }
 
-    return fetch(this.baseURL, config)
+    return fetch(`${this.baseURL}${movieId}/reviews`, config)
       .then(resp => resp.json())
   }
+
+
 }
