@@ -2,8 +2,8 @@ class Movies {
   constructor() {
     this.movies = []
     this.adapter = new MoviesAdapter()
-    this.loadMovies()
     this.initEventListeners()
+    this.loadMovies()
   }
 
   initEventListeners() {
@@ -53,15 +53,41 @@ class Movies {
   }
 
   showRevForm() {
+    let movie_id = event.target.dataset.id
+    let title = event.target.dataset.title
     const reviewForm = document.getElementById("review-form-container")
+    reviewForm.innerHTML = ""
     reviewForm.innerHTML += `
-      <h2>New Review</h2>
+      <h2>New Review of ${title}</h2>
       <form id="new-review-form">
-      <input type="text" name="review" placeholder="your review here">
+      <textarea placeholder="your review here" rows="10" cols="40" name="review" wrap="physical"></textarea><br>
+      <input type="hidden" name="movie_id" value="${movie_id}">
       <input type="submit">
       </form>
     `
+
+    const newRevForm = document.getElementById("new-review-form")
+    newRevForm.addEventListener('submit', (e) => {
+      e.preventDefault()
+
+      const el = e.target
+      const movieId = el.movie_id.value
+      const revFormData = {
+        body: el.review.value,
+        movie_id: el.movie_id.value,
+      }
+
+      reviewForm.innerHTML = ""
+
+      this.adapter.saveReview(revFormData, movieId)
+        .then(review => )
+    })
   }
+
+  createReview() {
+
+  }
+
 }
 
 //

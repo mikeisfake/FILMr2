@@ -8,19 +8,7 @@ class ReviewsAdapter {
       .then(resp => resp.json())
   }
 
-  // saveReview(formData, movieId) {
-  //   const config = {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       "Accept": "application/json"
-  //     },
-  //     body: JSON.stringify(formData)
-  //   }
-  //
-  //   return fetch(`${this.baseURL}${movieId}/reviews`, config)
-  //     .then(resp => resp.json())
-  // }
+
 
 
 }

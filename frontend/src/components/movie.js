@@ -14,8 +14,7 @@ class Movie {
     return `
     <div class="movie-card" data-id="${this.id}">
     <h3>${this.title}</h3>
-    <button class="review-btn" data-id="${this.id}"> add review</button>
-    <form id="new-review-form"></form>
+    <button class="review-btn" data-title="${this.title}" data-id="${this.id}"> add review</button>
     <p>released: ${this.year} <br>
     directed by: ${this.director}<br><br>
     ${this.summary}
