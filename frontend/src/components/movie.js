@@ -13,8 +13,7 @@ class Movie {
   renderMovie() {
     return `
     <div class="movie-card" data-id="${this.id}">
-    <h3>${this.title}</h3>
-    <button class="review-btn" data-title="${this.title}" data-id="${this.id}"> add review</button>
+    <h3>${this.title} <button class="review-btn" data-title="${this.title}" data-id="${this.id}">+</button></h3>
     <p>released: ${this.year} <br>
     directed by: ${this.director}<br><br>
     ${this.summary}

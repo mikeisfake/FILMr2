@@ -1,0 +1,86 @@
+html {
+  background: #1c1b1f;
+  color: #eee;
+  font-family: 'Roboto';
+  letter-spacing: 1px;
+  box-sizing: border-box;
+}
+
+#new-movie-form input {
+  background: #35333b;
+  padding: 10px;
+  border-radius: 5px;
+  border: transparent;
+}
+
+#new-movie-form input:focus {
+  color: #eee;
+  outline: none;
+  border: 1px solid #6890a3;
+}
+
+
+#movie-list {
+  color: #eee;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-card {
+  width: 400px;
+  height: 300px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background: #2c2a30;
+  padding: 20px;
+  margin: 25px;
+  overflow: auto;
+}
+
+.review-btn {
+  border-radius: 5px;
+  background: #1c1b1f;
+  color: #eee;
+  border: transparent;
+  font-size: 1.05em;
+  margin-left: 10px;
+}
+#new-review-form {
+  display:inline;
+  position: relative;
+  width: 100%;
+  background: #1c1b1f;
+}
+
+#new-review-form input,
+#new-review-form textarea {
+  background: #35333b;
+  padding: 10px;
+  border-radius: 5px;
+  border: transparent;
+}
+#new-review-form textarea {
+  width: 40%;
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+#new-review-form textarea:focus{
+  border: 2px solid #6890a3;
+  outline: none;
+  color: #eee;
+}
+
+button,
+#new-movie-form input[type=submit],
+#new-review-form input[type=submit] {
+  color: #eee;
+}
+
+button:hover,
+#new-movie-form input[type=submit]:hover,
+#new-review-form input[type=submit]:hover {
+  background-color: #6890a3;
+  cursor: pointer;
+}

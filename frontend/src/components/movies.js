@@ -36,6 +36,7 @@ class Movies {
   loadMovies() {
     this.adapter.fetchMovies()
       .then(movies => {
+        this.movies = []
         movies.forEach(movie => this.movies.push(new Movie(movie)))
       })
       .then(() => this.renderMovies())
@@ -43,6 +44,7 @@ class Movies {
 
   renderMovies() {
     const container = document.getElementById('movie-list')
+    container.innerHTML = ""
     container.innerHTML = this.movies.map(movie => movie.renderMovie()).join('')
     this.btnEventListeners()
   }
@@ -58,11 +60,11 @@ class Movies {
     const reviewForm = document.getElementById("review-form-container")
     reviewForm.innerHTML = ""
     reviewForm.innerHTML += `
-      <h2>New Review of ${title}</h2>
       <form id="new-review-form">
-      <textarea placeholder="your review here" rows="10" cols="40" name="review" wrap="physical"></textarea><br>
+      <h2>New Review of ${title}</h2>
+      <textarea placeholder="your review here" name="review" wrap="physical"></textarea><br>
       <input type="hidden" name="movie_id" value="${movie_id}">
-      <input type="submit">
+      <input type="submit" value="add review">
       </form>
     `
 
@@ -80,12 +82,9 @@ class Movies {
       reviewForm.innerHTML = ""
 
       this.adapter.saveReview(revFormData, movieId)
-        .then(review => )
+        .then(review => new Review(review))
+        .then(() => this.loadMovies())
     })
-  }
-
-  createReview() {
-
   }
 
 }
