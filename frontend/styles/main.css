@@ -46,6 +46,10 @@ html {
   overflow: auto;
 }
 
+.movie-card h3{
+  text-transform: uppercase;
+}
+
 .review-btn {
   border-radius: 5px;
   background: #1c1b1f;
