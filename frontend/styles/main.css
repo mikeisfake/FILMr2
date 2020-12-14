@@ -6,6 +6,15 @@ html {
   box-sizing: border-box;
 }
 
+#review-form-container {
+  position: relative;
+}
+
+#main-container {
+  position: relative;
+}
+
+
 #new-movie-form input {
   background: #35333b;
   padding: 10px;
@@ -30,7 +39,6 @@ html {
 .movie-card {
   width: 400px;
   height: 300px;
-  border: 1px solid #eee;
   border-radius: 5px;
   background: #2c2a30;
   padding: 20px;
