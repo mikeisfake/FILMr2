@@ -14,7 +14,7 @@ class Movies {
   createMovie(e) {
     e.preventDefault()
 
-    let el = e.target;
+    const el = e.target;
     const formData = {
       title: el.title.value || "",
       year: el.year.value || "",
@@ -54,9 +54,10 @@ class Movies {
     btns.forEach(btn => btn.addEventListener('click', () => this.showRevForm() ))
   }
 
+
   showRevForm() {
-    let movie_id = event.target.dataset.id
-    let title = event.target.dataset.title
+    const movie_id = event.target.dataset.id
+    const title = event.target.dataset.title
     const reviewForm = document.getElementById("review-form-container")
     reviewForm.innerHTML = ""
     reviewForm.innerHTML += `
@@ -86,6 +87,7 @@ class Movies {
         .then(() => this.loadMovies())
     })
   }
+
 
 }
 
